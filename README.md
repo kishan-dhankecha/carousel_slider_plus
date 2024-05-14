@@ -1,6 +1,14 @@
-# carousel_slider
+# carousel_slider_plus
 
 A carousel slider widget.
+
+This package is fork of [carousel_slider](https://pub.dev/packages/carousel_slider) which is not maintained anymore.
+
+[![pub package](https://img.shields.io/pub/v/carousel_slider_plus.svg)](https://pub.dev/packages/carousel_slider_plus)
+
+[![likes](https://img.shields.io/pub/likes/carousel_slider_plus)](https://pub.dev/packages/carousel_slider_plus/score)
+[![popularity](https://img.shields.io/pub/popularity/carousel_slider_plus)](https://pub.dev/packages/carousel_slider_plus/score)
+[![pub points](https://img.shields.io/pub/points/carousel_slider_plus)](https://pub.dev/packages/carousel_slider_plus/score)
 
 ## Features 
 
@@ -15,18 +23,12 @@ A carousel slider widget.
 * Flutter web
 * Flutter desktop
 
-## Live preview
-
-https://serenader2014.github.io/flutter_carousel_slider/#/
-
-Note: this page is built with flutter-web. For a better user experience, please use a mobile device to open this link.
-
 ## Installation
 
-Add `carousel_slider: ^4.2.1` to your `pubspec.yaml` dependencies. And import it:
+Add `carousel_slider_plus: ^5.0.1` to your `pubspec.yaml` dependencies. And import it:
 
 ```dart
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:carousel_slider_plus/carousel_slider_plus.dart';
 ```
 
 ## How to use
@@ -56,29 +58,26 @@ CarouselSlider(
 ## Params
 
 ```dart
-
 CarouselSlider(
-   items: items,
-   options: CarouselOptions(
-      height: 400,
-      aspectRatio: 16/9,
-      viewportFraction: 0.8,
-      initialPage: 0,
-      enableInfiniteScroll: true,
-      reverse: false,
-      autoPlay: true,
-      autoPlayInterval: Duration(seconds: 3),
-      autoPlayAnimationDuration: Duration(milliseconds: 800),
-      autoPlayCurve: Curves.fastOutSlowIn,
-      enlargeCenterPage: true,
-      enlargeFactor: 0.3,
-      onPageChanged: callbackFunction,
-      scrollDirection: Axis.horizontal,
-   )
- )
+  items: items,
+  options: CarouselOptions(
+    height: 400,
+    aspectRatio: 16/9,
+    viewportFraction: 0.8,
+    initialPage: 0,
+    enableInfiniteScroll: true,
+    reverse: false,
+    autoPlay: true,
+    autoPlayInterval: Duration(seconds: 3),
+    autoPlayAnimationDuration: Duration(milliseconds: 800),
+    autoPlayCurve: Curves.fastOutSlowIn,
+    enlargeCenterPage: true,
+    enlargeFactor: 0.3,
+    onPageChanged: callbackFunction,
+    scrollDirection: Axis.horizontal,
+  )
+)
 ```
-
-Since `v2.0.0`, you'll need to pass the options to `CarouselOptions`. For each option's usage you can refer to [carousel_options.dart](./lib/carousel_options.dart).
 
 **If you pass the `height` parameter, the `aspectRatio` parameter will be ignored.**
 
@@ -88,25 +87,25 @@ This method will save memory by building items once it becomes necessary. This w
 It can be used to build different child item widgets related to content or by item index.
 
 ```dart
-
 CarouselSlider.builder(
   itemCount: 15,
-  itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) =>
-    Container(
+  itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex) {
+    return Container(
       child: Text(itemIndex.toString()),
-    ),
+    );
+  }
 )
 ```
 
 ## Carousel controller
 
-In order to manually control the pageview's position, you can create your own `CarouselController`, and pass it to `CarouselSlider`. Then you can use the `CarouselController` instance to manipulate the position.
+In order to manually control the PageView's position, you can create your own `CarouselController`, and pass it to `CarouselSlider`. Then you can use the `CarouselController` instance to manipulate the position.
 
 ```dart 
 class CarouselDemo extends StatelessWidget {
   CarouselController buttonCarouselController = CarouselController();
 
- @override
+  @override
   Widget build(BuildContext context) => Column(
     children: <Widget>[
       CarouselSlider(

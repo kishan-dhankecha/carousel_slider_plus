@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 
-enum CarouselPageChangedReason { timed, manual, controller }
+enum CarouselPageChangedReason {
+  timed,
+  manual,
+  controller
+}
 
-enum CenterPageEnlargeStrategy { scale, height, zoom }
+enum CenterPageEnlargeStrategy {
+  scale,
+  height,
+  zoom
+}
 
 class CarouselOptions {
   /// Set carousel height and overrides any existing [aspectRatio].
@@ -135,61 +143,62 @@ class CarouselOptions {
 
   CarouselOptions({
     this.height,
-    this.aspectRatio: 16 / 9,
-    this.viewportFraction: 0.8,
-    this.initialPage: 0,
-    this.enableInfiniteScroll: true,
-    this.animateToClosest: true,
-    this.reverse: false,
-    this.autoPlay: false,
-    this.autoPlayInterval: const Duration(seconds: 4),
+    this.aspectRatio = 16 / 9,
+    this.viewportFraction = 0.8,
+    this.initialPage = 0,
+    this.enableInfiniteScroll = true,
+    this.animateToClosest = true,
+    this.reverse = false,
+    this.autoPlay = false,
+    this.autoPlayInterval = const Duration(seconds: 4),
     this.autoPlayAnimationDuration = const Duration(milliseconds: 800),
-    this.autoPlayCurve: Curves.fastOutSlowIn,
+    this.autoPlayCurve = Curves.fastOutSlowIn,
     this.enlargeCenterPage = false,
     this.onPageChanged,
     this.onScrolled,
     this.scrollPhysics,
     this.pageSnapping = true,
-    this.scrollDirection: Axis.horizontal,
-    this.pauseAutoPlayOnTouch: true,
-    this.pauseAutoPlayOnManualNavigate: true,
-    this.pauseAutoPlayInFiniteScroll: false,
+    this.scrollDirection = Axis.horizontal,
+    this.pauseAutoPlayOnTouch = true,
+    this.pauseAutoPlayOnManualNavigate = true,
+    this.pauseAutoPlayInFiniteScroll = false,
     this.pageViewKey,
-    this.enlargeStrategy: CenterPageEnlargeStrategy.scale,
-    this.enlargeFactor: 0.3,
-    this.disableCenter: false,
+    this.enlargeStrategy = CenterPageEnlargeStrategy.scale,
+    this.enlargeFactor = 0.3,
+    this.disableCenter = false,
     this.padEnds = true,
-    this.clipBehavior: Clip.hardEdge,
+    this.clipBehavior = Clip.hardEdge,
   });
 
   ///Generate new [CarouselOptions] based on old ones.
 
-  CarouselOptions copyWith(
-          {double? height,
-          double? aspectRatio,
-          double? viewportFraction,
-          int? initialPage,
-          bool? enableInfiniteScroll,
-          bool? reverse,
-          bool? autoPlay,
-          Duration? autoPlayInterval,
-          Duration? autoPlayAnimationDuration,
-          Curve? autoPlayCurve,
-          bool? enlargeCenterPage,
-          Function(int index, CarouselPageChangedReason reason)? onPageChanged,
-          ValueChanged<double?>? onScrolled,
-          ScrollPhysics? scrollPhysics,
-          bool? pageSnapping,
-          Axis? scrollDirection,
-          bool? pauseAutoPlayOnTouch,
-          bool? pauseAutoPlayOnManualNavigate,
-          bool? pauseAutoPlayInFiniteScroll,
-          PageStorageKey? pageViewKey,
-          CenterPageEnlargeStrategy? enlargeStrategy,
-          double? enlargeFactor,
-          bool? disableCenter,
-          Clip? clipBehavior,
-          bool? padEnds}) =>
+  CarouselOptions copyWith({
+    double? height,
+    double? aspectRatio,
+    double? viewportFraction,
+    int? initialPage,
+    bool? enableInfiniteScroll,
+    bool? reverse,
+    bool? autoPlay,
+    Duration? autoPlayInterval,
+    Duration? autoPlayAnimationDuration,
+    Curve? autoPlayCurve,
+    bool? enlargeCenterPage,
+    Function(int index, CarouselPageChangedReason reason)? onPageChanged,
+    ValueChanged<double?>? onScrolled,
+    ScrollPhysics? scrollPhysics,
+    bool? pageSnapping,
+    Axis? scrollDirection,
+    bool? pauseAutoPlayOnTouch,
+    bool? pauseAutoPlayOnManualNavigate,
+    bool? pauseAutoPlayInFiniteScroll,
+    PageStorageKey? pageViewKey,
+    CenterPageEnlargeStrategy? enlargeStrategy,
+    double? enlargeFactor,
+    bool? disableCenter,
+    Clip? clipBehavior,
+    bool? padEnds,
+  }) =>
       CarouselOptions(
         height: height ?? this.height,
         aspectRatio: aspectRatio ?? this.aspectRatio,
@@ -199,8 +208,7 @@ class CarouselOptions {
         reverse: reverse ?? this.reverse,
         autoPlay: autoPlay ?? this.autoPlay,
         autoPlayInterval: autoPlayInterval ?? this.autoPlayInterval,
-        autoPlayAnimationDuration:
-            autoPlayAnimationDuration ?? this.autoPlayAnimationDuration,
+        autoPlayAnimationDuration: autoPlayAnimationDuration ?? this.autoPlayAnimationDuration,
         autoPlayCurve: autoPlayCurve ?? this.autoPlayCurve,
         enlargeCenterPage: enlargeCenterPage ?? this.enlargeCenterPage,
         onPageChanged: onPageChanged ?? this.onPageChanged,
@@ -209,10 +217,8 @@ class CarouselOptions {
         pageSnapping: pageSnapping ?? this.pageSnapping,
         scrollDirection: scrollDirection ?? this.scrollDirection,
         pauseAutoPlayOnTouch: pauseAutoPlayOnTouch ?? this.pauseAutoPlayOnTouch,
-        pauseAutoPlayOnManualNavigate:
-            pauseAutoPlayOnManualNavigate ?? this.pauseAutoPlayOnManualNavigate,
-        pauseAutoPlayInFiniteScroll:
-            pauseAutoPlayInFiniteScroll ?? this.pauseAutoPlayInFiniteScroll,
+        pauseAutoPlayOnManualNavigate: pauseAutoPlayOnManualNavigate ?? this.pauseAutoPlayOnManualNavigate,
+        pauseAutoPlayInFiniteScroll: pauseAutoPlayInFiniteScroll ?? this.pauseAutoPlayInFiniteScroll,
         pageViewKey: pageViewKey ?? this.pageViewKey,
         enlargeStrategy: enlargeStrategy ?? this.enlargeStrategy,
         enlargeFactor: enlargeFactor ?? this.enlargeFactor,

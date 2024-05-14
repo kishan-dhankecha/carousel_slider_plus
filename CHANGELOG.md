@@ -1,3 +1,12 @@
+# 5.0.1
+
+- [FIX] `options` in `CarouselSlider` in no longer required
+- [FIX] macos image not loading in release build issue fixed
+- [CHORE] code formatting
+- [CHORE] example project updated
+- [CHORE] dependecies updated 
+
+
 # 4.2.1
 
 - [FIX] temporary remove `PointerDeviceKind.trackpad`
@@ -14,17 +23,13 @@
 
 # 4.1.1
 
-- Fix code formatting
+- [FIX] code formatting
 
 # 4.1.0
 
-## Add
-
-- Exposed `clipBehavior` in `CarouselOptions`
-- Exposed `padEnds` in `CarouselOptions`
-- Add `copyWith` method to `CarouselOptions`
-
-## Fix
+- [ADD] Exposed `clipBehavior` in `CarouselOptions`
+- [ADD] Exposed `padEnds` in `CarouselOptions`
+- [ADD] Add `copyWith` method to `CarouselOptions`
 
 - [FIX] Can't swipe on web with Flutter 2.5
 
@@ -161,7 +166,7 @@ CarouselSlider(
 
 - `CarouselController`
 
-Since `v2.0.0`, `carousel_slider` plugin provides a way to pass your own `CaourselController`, and you can use `CaouselController` instance to manually control the carousel's position. For a more detailed example please refer to [example project](example/lib/main.dart).
+Since `v2.0.0`, `carousel_slider_plus` plugin provides a way to pass your own `CaourselController`, and you can use `CaouselController` instance to manually control the carousel's position. For a more detailed example please refer to [example project](example/lib/main.dart).
 
 - `CarouselPageChangedReason`
 
