@@ -2,6 +2,7 @@ library carousel_slider_plus;
 
 import 'dart:async';
 
+import 'package:carousel_slider_plus/helpers/conditional_parent.widget.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -176,28 +177,8 @@ class _CarouselSliderState extends State<CarouselSlider> with TickerProviderStat
       wrapper = AspectRatio(aspectRatio: widget.options.aspectRatio, child: child);
     }
 
-    if (true == widget.disableGesture) {
-      return NotificationListener(
-        onNotification: (Notification notification) {
-          if (widget.options.onScrolled != null && notification is ScrollUpdateNotification) {
-            widget.options.onScrolled!(carouselState!.pageController!.page);
-          }
-          return false;
-        },
-        child: wrapper,
-      );
-    }
-
-    return RawGestureDetector(
-      behavior: HitTestBehavior.opaque,
-      gestures: {
-        PanGestureRecognizer: GestureRecognizerFactoryWithHandlers<PanGestureRecognizer>(() => PanGestureRecognizer(), (PanGestureRecognizer instance) {
-          instance.onStart = (_) => onStart();
-          instance.onDown = (_) => onPanDown();
-          instance.onEnd = (_) => onPanUp();
-          instance.onCancel = () => onPanUp();
-        }),
-      },
+    return ConditionalParentWidget(
+      isIncluded: !(widget.disableGesture ?? false),
       child: NotificationListener(
         onNotification: (Notification notification) {
           if (widget.options.onScrolled != null && notification is ScrollUpdateNotification) {
@@ -207,14 +188,29 @@ class _CarouselSliderState extends State<CarouselSlider> with TickerProviderStat
         },
         child: wrapper,
       ),
+      parentBuilder: (Widget child) {
+        return RawGestureDetector(
+          behavior: HitTestBehavior.opaque,
+          gestures: {
+            PanGestureRecognizer: GestureRecognizerFactoryWithHandlers<PanGestureRecognizer>(() => PanGestureRecognizer(), (PanGestureRecognizer instance) {
+              instance.onStart = (_) => onStart();
+              instance.onDown = (_) => onPanDown();
+              instance.onEnd = (_) => onPanUp();
+              instance.onCancel = () => onPanUp();
+            }),
+          },
+          child: child,
+        );
+      },
     );
   }
 
   Widget getCenterWrapper(Widget child) {
-    if (widget.options.disableCenter) {
-      return Container(child: child);
-    }
-    return Center(child: child);
+    return ConditionalParentWidget(
+      child: child,
+      isIncluded: !widget.options.disableCenter,
+      parentBuilder: (child) => Center(child: child),
+    );
   }
 
   Widget getEnlargeWrapper(Widget? child, {double? width, double? height, double? scale, required double itemOffset}) {
@@ -271,7 +267,7 @@ class _CarouselSliderState extends State<CarouselSlider> with TickerProviderStat
         },
       ),
       clipBehavior: widget.options.clipBehavior,
-      physics: widget.options.scrollPhysics,
+      physics: widget.disableGesture ?? false ? NeverScrollableScrollPhysics() : widget.options.scrollPhysics,
       scrollDirection: widget.options.scrollDirection,
       pageSnapping: widget.options.pageSnapping,
       controller: carouselState!.pageController,
@@ -280,9 +276,7 @@ class _CarouselSliderState extends State<CarouselSlider> with TickerProviderStat
       key: widget.options.pageViewKey,
       onPageChanged: (int index) {
         int currentPage = getRealIndex(index + carouselState!.initialPage, carouselState!.realPage, widget.itemCount);
-        if (widget.options.onPageChanged != null) {
-          widget.options.onPageChanged!(currentPage, mode);
-        }
+        widget.options.onPageChanged?.call(currentPage, mode);
       },
       itemBuilder: (BuildContext context, int idx) {
         final int index = getRealIndex(idx + carouselState!.initialPage, carouselState!.realPage, widget.itemCount);
