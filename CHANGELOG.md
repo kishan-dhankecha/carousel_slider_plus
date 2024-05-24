@@ -1,3 +1,7 @@
+# 5.0.2
+
+- [FIX] fixes serenader2014/flutter_carousel_slider#438
+
 # 5.0.1
 
 - [FIX] `options` in `CarouselSlider` in no longer required
