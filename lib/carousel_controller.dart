@@ -1,32 +1,12 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide CarouselController;
 
 import 'carousel_options.dart';
 import 'carousel_state.dart';
 import 'utils.dart';
 
-abstract class CarouselController {
-  bool get ready;
-
-  Future<Null> get onReady;
-
-  Future<void> nextPage({Duration? duration, Curve? curve});
-
-  Future<void> previousPage({Duration? duration, Curve? curve});
-
-  void jumpToPage(int page);
-
-  Future<void> animateToPage(int page, {Duration? duration, Curve? curve});
-
-  void startAutoPlay();
-
-  void stopAutoPlay();
-
-  factory CarouselController() => CarouselControllerImpl();
-}
-
-class CarouselControllerImpl implements CarouselController {
+class CarouselControllerPlus {
   final Completer<Null> _readyCompleter = Completer<Null>();
 
   CarouselState? _state;
@@ -40,10 +20,8 @@ class CarouselControllerImpl implements CarouselController {
 
   void _setModeController() => _state!.changeMode(CarouselPageChangedReason.controller);
 
-  @override
   bool get ready => _state != null;
 
-  @override
   Future<Null> get onReady => _readyCompleter.future;
 
   /// Animates the controlled [CarouselSlider] to the next page.

@@ -256,7 +256,7 @@ class ManuallyControlledSlider extends StatefulWidget {
 }
 
 class _ManuallyControlledSliderState extends State<ManuallyControlledSlider> {
-  final CarouselController _controller = CarouselController();
+  final CarouselControllerPlus _controller = CarouselControllerPlus();
 
   @override
   void initState() {
@@ -273,7 +273,7 @@ class _ManuallyControlledSliderState extends State<ManuallyControlledSlider> {
             CarouselSlider(
               items: imageSliders,
               options: CarouselOptions(enlargeCenterPage: true, height: 200),
-              carouselController: _controller,
+              controller: _controller,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -409,7 +409,7 @@ class CarouselWithIndicatorDemo extends StatefulWidget {
 
 class _CarouselWithIndicatorState extends State<CarouselWithIndicatorDemo> {
   int _current = 0;
-  final CarouselController _controller = CarouselController();
+  final CarouselControllerPlus _controller = CarouselControllerPlus();
 
   @override
   Widget build(BuildContext context) {
@@ -420,7 +420,7 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicatorDemo> {
           Expanded(
             child: CarouselSlider(
               items: imageSliders,
-              carouselController: _controller,
+              controller: _controller,
               options: CarouselOptions(
                 autoPlay: true,
                 enlargeCenterPage: true,
@@ -517,7 +517,7 @@ class CarouselChangeReasonDemo extends StatefulWidget {
 
 class _CarouselChangeReasonDemoState extends State<CarouselChangeReasonDemo> {
   String reason = '';
-  final CarouselController _controller = CarouselController();
+  final CarouselControllerPlus _controller = CarouselControllerPlus();
 
   void onPageChange(int index, CarouselPageChangedReason changeReason) {
     setState(() {
@@ -541,7 +541,7 @@ class _CarouselChangeReasonDemoState extends State<CarouselChangeReasonDemo> {
                   onPageChanged: onPageChange,
                   autoPlay: true,
                 ),
-                carouselController: _controller,
+                controller: _controller,
               ),
             ),
             Row(

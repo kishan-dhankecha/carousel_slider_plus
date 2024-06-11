@@ -99,18 +99,18 @@ CarouselSlider.builder(
 
 ## Carousel controller
 
-In order to manually control the PageView's position, you can create your own `CarouselController`, and pass it to `CarouselSlider`. Then you can use the `CarouselController` instance to manipulate the position.
+In order to manually control the PageView's position, you can create your own `CarouselControllerPlus`, and pass it to `CarouselSlider`. Then you can use the `CarouselControllerPlus` instance to manipulate the position.
 
 ```dart 
 class CarouselDemo extends StatelessWidget {
-  CarouselController buttonCarouselController = CarouselController();
+  CarouselControllerPlus buttonCarouselController = CarouselControllerPlus();
 
   @override
   Widget build(BuildContext context) => Column(
     children: <Widget>[
       CarouselSlider(
         items: child,
-        carouselController: buttonCarouselController,
+        controller: buttonCarouselController,
         options: CarouselOptions(
           autoPlay: false,
           enlargeCenterPage: true,
@@ -129,7 +129,7 @@ class CarouselDemo extends StatelessWidget {
 }
 ```
 
-### `CarouselController` methods
+### `CarouselControllerPlus` methods
 
 #### `.nextPage({Duration duration, Curve curve})`
 
@@ -169,7 +169,7 @@ Image carousel slider with custom indicator demo:
 
 ![indicator](screenshot/indicator.gif)
 
-Custom `CarouselController` and manually control the pageview position demo:
+Custom `CarouselControllerPlus` and manually control the pageview position demo:
 
 ![manual](screenshot/manually.gif)
 

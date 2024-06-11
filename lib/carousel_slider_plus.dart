@@ -30,8 +30,13 @@ class CarouselSlider extends StatefulWidget {
   /// with Hero.
   final ExtendedIndexedWidgetBuilder? itemBuilder;
 
-  /// A [MapController], used to control the map.
-  final CarouselControllerImpl _carouselController;
+  /// The controller that can be used to control the carousel
+  /// This can be used to change the current page or to start the autoplay.
+  /// Defaults to a new instance of [CarouselControllerPlus].
+  /// If you want to control the carousel manually,
+  /// you can pass your own instance of
+  /// [CarouselControllerPlus] to this constructor
+  final CarouselControllerPlus carouselController;
 
   final int? itemCount;
 
@@ -40,11 +45,11 @@ class CarouselSlider extends StatefulWidget {
     required this.items,
     CarouselOptions? options,
     this.disableGesture,
-    CarouselController? carouselController,
+    CarouselControllerPlus? controller,
   })  : this.options = options ?? CarouselOptions(),
         itemBuilder = null,
         itemCount = items?.length ?? 0,
-        _carouselController = (carouselController ?? CarouselController()) as CarouselControllerImpl;
+        carouselController = controller ?? CarouselControllerPlus();
 
   /// The on demand item builder constructor
   CarouselSlider.builder({
@@ -53,17 +58,16 @@ class CarouselSlider extends StatefulWidget {
     required this.itemBuilder,
     CarouselOptions? options,
     this.disableGesture,
-    CarouselController? carouselController,
+    CarouselControllerPlus? controller,
   })  : this.options = options ?? CarouselOptions(),
         items = null,
-        _carouselController = (carouselController ?? CarouselController()) as CarouselControllerImpl;
+        carouselController = controller ?? CarouselControllerPlus();
 
   @override
   _CarouselSliderState createState() => _CarouselSliderState();
 }
 
 class _CarouselSliderState extends State<CarouselSlider> with TickerProviderStateMixin {
-  late final CarouselControllerImpl carouselController;
   Timer? timer;
 
   CarouselOptions get options => widget.options;
@@ -100,11 +104,10 @@ class _CarouselSliderState extends State<CarouselSlider> with TickerProviderStat
   @override
   void initState() {
     super.initState();
-    carouselController = widget._carouselController;
     carouselState = CarouselState(this.options, clearTimer, resumeTimer, this.changeMode);
 
     carouselState!.itemCount = widget.itemCount;
-    carouselController.state = carouselState;
+    widget.carouselController.state = carouselState;
     carouselState!.initialPage = widget.options.initialPage;
     carouselState!.realPage = options.enableInfiniteScroll ? carouselState!.realPage + carouselState!.initialPage : carouselState!.initialPage;
     handleAutoPlay();
@@ -178,7 +181,7 @@ class _CarouselSliderState extends State<CarouselSlider> with TickerProviderStat
     }
 
     return ConditionalParentWidget(
-      isIncluded: !(widget.disableGesture ?? false),
+      isIncluded: !widget.disableGesture,
       child: NotificationListener(
         onNotification: (Notification notification) {
           if (widget.options.onScrolled != null && notification is ScrollUpdateNotification) {
