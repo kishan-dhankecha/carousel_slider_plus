@@ -4,7 +4,7 @@ import 'dart:async';
 
 import 'package:carousel_slider_plus/helpers/conditional_parent.widget.dart';
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide CarouselController;
 
 import 'carousel_controller.dart';
 import 'carousel_options.dart';
@@ -14,20 +14,38 @@ import 'utils.dart';
 export 'carousel_controller.dart';
 export 'carousel_options.dart';
 
+/// A function that creates a widget for a given index
+/// This is useful for when you want to create the items on demand
 typedef Widget ExtendedIndexedWidgetBuilder(BuildContext context, int index, int realIndex);
 
+/// A carousel slider widget.
+///
+/// This widget is useful when you have a bunch of widgets that you want to display in a carousel.
+/// It can be used to display images, cards, or any other widgets.
+/// It is similar to a ViewPager in Android.
+/// It is highly customizable and flexible.
+/// You can control the carousel manually by using the [CarouselControllerPlus] that is passed to the constructor.
 class CarouselSlider extends StatefulWidget {
   /// [CarouselOptions] to create a [CarouselState] with
   final CarouselOptions options;
 
-  final bool? disableGesture;
+  /// Whether or not to disable touch gestures.
+  /// If this is set to true, the carousel will not respond to any touch events
+  /// and will not be able to be swiped or controlled by the user.
+  /// This is useful for when you want to control the carousel manually.
+  /// Defaults to false.
+  final bool disableGesture;
 
-  /// The widgets to be shown in the carousel of default constructor
+  /// The list of widgets that will be used to create the carousel items.
   final List<Widget>? items;
 
-  /// The widget item builder that will be used to build item on demand
-  /// The third argument is the PageView's real index, can be used to cooperate
-  /// with Hero.
+  /// The builder that will be used to create the carousel items.
+  /// This is useful for when you want to create the items on demand.
+  /// This is required if you are using the builder constructor.
+  /// The builder will be called with the context, the index of the item,
+  /// and the real index of the item.
+  /// The real index is the index of the item in the list of items
+  /// and is useful for when you are using infinite scroll.
   final ExtendedIndexedWidgetBuilder? itemBuilder;
 
   /// The controller that can be used to control the carousel
@@ -38,26 +56,33 @@ class CarouselSlider extends StatefulWidget {
   /// [CarouselControllerPlus] to this constructor
   final CarouselControllerPlus carouselController;
 
+  /// The number of items in the carousel
+  /// This is required if you are using the builder constructor
+  /// If you are using the list constructor, this will be set automatically
   final int? itemCount;
 
+  /// Creates a carousel slider widget with a list of items
+  /// The items will be created from the list of widgets that you pass to this constructor.
   CarouselSlider({
     super.key,
     required this.items,
     CarouselOptions? options,
-    this.disableGesture,
+    this.disableGesture = false,
     CarouselControllerPlus? controller,
   })  : this.options = options ?? CarouselOptions(),
         itemBuilder = null,
         itemCount = items?.length ?? 0,
         carouselController = controller ?? CarouselControllerPlus();
 
-  /// The on demand item builder constructor
+  /// Creates a carousel slider widget with a builder
+  /// The items will be created using the builder that you pass to this constructor.
+  /// This is useful for when you want to create the items on demand.
   CarouselSlider.builder({
     super.key,
     required this.itemCount,
     required this.itemBuilder,
     CarouselOptions? options,
-    this.disableGesture,
+    this.disableGesture = false,
     CarouselControllerPlus? controller,
   })  : this.options = options ?? CarouselOptions(),
         items = null,
@@ -270,7 +295,7 @@ class _CarouselSliderState extends State<CarouselSlider> with TickerProviderStat
         },
       ),
       clipBehavior: widget.options.clipBehavior,
-      physics: widget.disableGesture ?? false ? NeverScrollableScrollPhysics() : widget.options.scrollPhysics,
+      physics: widget.disableGesture ? NeverScrollableScrollPhysics() : widget.options.scrollPhysics,
       scrollDirection: widget.options.scrollDirection,
       pageSnapping: widget.options.pageSnapping,
       controller: carouselState!.pageController,
