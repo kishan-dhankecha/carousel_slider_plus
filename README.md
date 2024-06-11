@@ -25,7 +25,7 @@ This package is fork of [carousel_slider](https://pub.dev/packages/carousel_slid
 
 ## Installation
 
-Add `carousel_slider_plus: ^5.0.1` to your `pubspec.yaml` dependencies. And import it:
+Add `carousel_slider_plus: ^6.0.0` to your `pubspec.yaml` dependencies. And import it:
 
 ```dart
 import 'package:carousel_slider_plus/carousel_slider_plus.dart';

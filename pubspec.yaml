@@ -1,7 +1,7 @@
 name: carousel_slider_plus
 description: A carousel slider widget, support infinite scroll and custom child widget.
 repository: https://github.com/kishan-dhankecha/carousel_slider_plus
-version: 5.0.2
+version: 6.0.0
 
 environment:
   sdk: '>=2.17.0 <4.0.0'

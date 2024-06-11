@@ -1,3 +1,14 @@
+# 6.0.0
+
+## Breaking change
+- `CarouselController` renamed to `CarouselControllerPlus`
+> This change was necessary as flutter now has it's own `CarouselController` class as part of their material library
+- `carouselController` named property of `CarouselSlider` renamed to `controller`
+
+## Chores
+- Docs updated
+- Example app code updated to reflect latest changes
+
 # 5.0.2
 
 ## Fixes
