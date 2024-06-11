@@ -1,151 +1,153 @@
 # 5.0.2
 
-- [FIX] fixes serenader2014/flutter_carousel_slider#438
+## Fixes
+- Fixes serenader2014/flutter_carousel_slider#438
+
 
 # 5.0.1
 
-- [FIX] `options` in `CarouselSlider` in no longer required
-- [FIX] macos image not loading in release build issue fixed
-- [CHORE] code formatting
-- [CHORE] example project updated
-- [CHORE] dependecies updated 
+## Fixes
+- `options` in `CarouselSlider` in no longer required
+- macOS image not loading in release build issue fixed
+
+## Chores
+- Code formatting
+- Example project updated
+- Dependencies updated
 
 
 # 4.2.1
 
-- [FIX] temporary remove `PointerDeviceKind.trackpad`
-- [FIX] fix `'double?'` type
+## Fixes
+- Temporary remove `PointerDeviceKind.trackpad`
+- Fix `'double?'` type
+
 
 # 4.2.0
 
-- [Add] `enlargeFactor` option
-- [Add] `CenterPageEnlargeStrategy.zoom` option
-- [Add] `animateToClosest` option
+## Adds
+- `enlargeFactor` option
+- `CenterPageEnlargeStrategy.zoom` option
+- `animateToClosest` option
 
-- [FIX] clear timer if widget was unmounted
-- [FIX] scroll carousel using touchpad
+## Fixes
+- Clear timer if widget was unmounted
+- Scroll carousel using touchpad
+
 
 # 4.1.1
 
-- [FIX] code formatting
+## Fixes
+- Code formatting
+
 
 # 4.1.0
 
-- [ADD] Exposed `clipBehavior` in `CarouselOptions`
-- [ADD] Exposed `padEnds` in `CarouselOptions`
-- [ADD] Add `copyWith` method to `CarouselOptions`
+## Adds
+- Exposed `clipBehavior` in `CarouselOptions`
+- Exposed `padEnds` in `CarouselOptions`
+- Add `copyWith` method to `CarouselOptions`
 
-- [FIX] Can't swipe on web with Flutter 2.5
+## Fixes
+- Can't swipe on web with Flutter 2.5
 
 
 # 4.0.0
 
+## Adds
 - Support null safety (Null safety isn't a breaking change and is Backward compatible meaning you can use it with non-null safe code too)
-- Update example code to null safety and add Dark theme support and controller support to indicators in on of the examples and also fix overflow errors. 
+- Update example code to null safety and add Dark theme support and controller support to indicators in on of the examples and also fix overflow errors.
+
 
 # 3.0.0
 
-## Add
+## Breaking change
+- `itemBuilder` needs to accept three arguments, instead of two.
 
+## Adds
 - Add third argument in `itemBuilder`, allow Hero and infinite scroll to coexist
 
-## Breaking change
-
-- `itemBuilder` needs to accept three arguments, instead of two.
 
 # 2.3.4
 
-## Fix
-
+## Fixes
 - Rollback PR #222, due to it will break the existing project.
+
 
 # 2.3.3
 
-- Fix code formatting
+## Chores
+- Code formatting
+
 
 # 2.3.2
 
-## Fix
-
-- Double pointer down and up will cause a exception
-- Fix `CarouselPageChangedReason`
-
-## Add
-
+## Adds
 - Allow Hero and infinite scroll to coexist
+
+## Fixes
+- Double pointer down and up will cause a exception
+- Fixed `CarouselPageChangedReason`
+
 
 # 2.3.1
 
-- Fix code formatting
+## Chores
+- Code formatting
+
 
 # 2.3.0
 
-## Fix
-
-- Fixed unresponsiveness to state changes
-
-## Add
-
+## Adds
 - Added start/stop autoplay functionality
 - Pause auto play if not current route
 - Add `pageSnapping` option for disable page snapping for the carousel
 
+## Fixes
+- Fixed unresponsiveness to state changes
+
+
 # 2.2.1
 
-## Fix
-
+## Fixes
 - Fixed `carousel_options.dart` and `carousel_controller` not being exported by default.
+
 
 # 2.2.0
 
-## Add
-
+## Adds
 - `disableCenter` option
+> This option controls whether the carousel slider item should be wrapped in a `Center` widget or not.
+-  `enlargeStrategy` option
+> This option allow user to set which enlarge strategy to enlarge the center slide. Use `CenterPageEnlargeStrategy.height` if you want to improve the performance.
 
-This option controls whether the carousel slider item should be wrapped in a `Center` widget or not.
-
-- `enlargeStrategy` option
-
-This option allow user to set which enlarge strategy to enlarge the center slide. Use `CenterPageEnlargeStrategy.height` if you want to improve the performance.
-
-## Fix
-
+## Fixes
 - Fixed `CarousePageChangedReason.manual` never being emitted
+
 
 # 2.1.0
 
-## Add
-
+## Adds
 - `pauseAutoPlayOnTouch` option
-
-This option controls whether the carousel slider should pause the auto play function when user is touching the slider
-
+> This option controls whether the carousel slider should pause the auto play function when user is touching the slider
 - `pauseAutoPlayOnManualNavigate` option
-
-This option controls whether the carousel slider should pause the auto play function when user is calling controller's method.
-
+> This option controls whether the carousel slider should pause the auto play function when user is calling controller's method.
 - `pauseAutoPlayInFiniteScroll` option
-
-This option decide the carousel should go to the first item when it reach the last item or not.
-
+> This option decide the carousel should go to the first item when it reach the last item or not.
 - `pageViewKey` option
+> This option is useful when you want to keep the pageview's position when it was recreated.
 
-This option is useful when you want to keep the pageview's position when it was recreated.
-
-## Fix
-
+## Fixes
 - Fix `CarouselPageChangedReason` bug
 
-## Other updates
-
+## Chores
 - Use `Transform.scale` instead of `SizedBox` to wrap the slider item
+
 
 # 2.0.0
 
 ## Breaking change
-
 Instead of passing all the options to the `CarouselSlider`, now you'll need to pass these option to `CarouselOptions`:
-
 ```dart
 CarouselSlider(
   CarouselOptions(height: 400.0),
@@ -166,103 +168,96 @@ CarouselSlider(
 )
 ```
 
-## Add
-
+## Adds
 - `CarouselController`
-
-Since `v2.0.0`, `carousel_slider_plus` plugin provides a way to pass your own `CaourselController`, and you can use `CaouselController` instance to manually control the carousel's position. For a more detailed example please refer to [example project](example/lib/main.dart).
-
+> Since `v2.0.0`, `carousel_slider_plus` plugin provides a way to pass your own `CaourselController`, and you can use `CaouselController` instance to manually control the carousel's position. For a more detailed example please refer to [example project](example/lib/main.dart).
 - `CarouselPageChangedReason`
+> Now you can receive a `CarouselPageChangedReason` in `onPageChanged` callback.
 
-Now you can receive a `CarouselPageChangedReason` in `onPageChanged` callback.
-
-## Remove
-
+## Removes
 - `pauseAutoPlayOnTouch`
+> `pauseAutoPlayOnTouch` option is removed, because it doesn't fix the problem we have. Currently, when we enable the autoPlay feature, we can not stop sliding when the user interact with the carousel. This is a flutter's issue.
 
-`pauseAutoPlayOnTouch` option is removed, because it doesn't fix the problem we have. Currently, when we enable the `autoPlay` feature, we can not stop sliding when the user interact with the carousel. This is [a flutter's issue](https://github.com/flutter/flutter/issues/54875).
 
 # 1.4.1
 
-## Fix
+## Fixs
+- Fixed `animateTo()/jumpTo()` with non-zero initialPage
 
-- Fix `animateTo()/jumpTo()` with non-zero initialPage
 
 # 1.4.0
 
-## Add
-
+## Adds
 - Add on-demand item feature
 
-## Fix
+## Fixes
+- Fixed `setState() called after dispose()` bug
 
-- Fix `setState() called after dispose()` bug
 
 # 1.3.1
 
-## Add
-
+## Adds
 - Scroll physics option
 
-## Fix
-
+## Fixes
 - onPage indexing bug
 
 
 # 1.3.0
 
-## Deprecation
-
+## Deprecations
 - Remove the deprecated param: `interval`, `autoPlayDuration`, `distortion`, `updateCallback`. Please use the new param.
 
-## Fix
+## Fixes
+- Fix `enlargeCenterPage` option is not working in `vertical` carousel slider.
 
--  Fix `enlargeCenterPage` option is not working in `vertical` carousel slider.
 
 # 1.2.0
 
-## Add
-
+## Adds
 - Vertical scroll support
 - Enable/disable infinite scroll
 
+
 # 1.1.0
 
-## Add
-
+## Adds
 - Added `pauseAutoPlayOnTouch` option
 - Add documentation
 
+
 # 1.0.1
 
-## Add
-
+## Adds
 - Update doc
+
 
 # 1.0.0
 
-## Add
-
+## Adds
 - Added `distortion` option
 
 
 # 0.0.6
 
-## Fix
-
+## Fixes
 - Fix hard coded number
+
 
 # 0.0.5
 
-## Fix
-
+## Fixes
 - Fix `initialPage` bug, fix crash when widget is disposed.
 
 
-# v0.0.2
+# 0.0.2
 
-Remove useless dependencies, add changelog.
+## Adds
+- CHANGELOG
 
-# v0.0.1
+## Removes
+- Remove useless dependencies
 
-Initial version.
+
+# 0.0.1
+- Initial version.
