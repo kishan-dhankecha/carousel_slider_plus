@@ -7,6 +7,7 @@ environment: { sdk: '>=3.3.4 <4.0.0' }
 
 dependencies:
   flutter: { sdk: flutter }
+  flutter_web_plugins: { sdk: flutter }
   carousel_slider_plus: { path: ../ }
 
 dev_dependencies:

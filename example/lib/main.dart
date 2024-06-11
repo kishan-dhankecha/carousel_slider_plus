@@ -1,6 +1,8 @@
 import 'package:carousel_slider_plus/carousel_slider_plus.dart';
 import 'package:flutter/material.dart';
 
+import 'configure_nonweb.dart' if (dart.library.html) 'configure_web.dart';
+
 final List<String> imgList = [
   'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
   'https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=1950&q=80',
@@ -10,7 +12,10 @@ final List<String> imgList = [
   'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
 ];
 
-void main() => runApp(const CarouselDemo());
+void main() {
+  configureApp();
+  runApp(const CarouselDemo());
+}
 
 final themeMode = ValueNotifier(2);
 
@@ -174,7 +179,7 @@ final List<Widget> imageSliders = imgList.map((item) {
       borderRadius: const BorderRadius.all(Radius.circular(5.0)),
       child: Stack(
         children: <Widget>[
-          Image.network(item, fit: BoxFit.cover, width: 1000.0),
+          Image.network(item, fit: BoxFit.cover, width: double.infinity),
           Positioned(
             bottom: 0.0,
             left: 0.0,

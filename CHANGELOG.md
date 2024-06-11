@@ -8,6 +8,7 @@
 ## Chores
 - Docs updated
 - Example app code updated to reflect latest changes
+- Live web preview added via gh-pages
 
 # 5.0.2
 

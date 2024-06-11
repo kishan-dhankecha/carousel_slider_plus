@@ -23,9 +23,14 @@ This package is fork of [carousel_slider](https://pub.dev/packages/carousel_slid
 * Flutter web
 * Flutter desktop
 
+## Live preview
+https://kishan-dhankecha.github.io/carousel-slider-plus-gh-pages/
+
+Note: this page is built with flutter-web. For a better user experience, please use a mobile device to open this link.
+
 ## Installation
 
-Add `carousel_slider_plus: ^6.0.0` to your `pubspec.yaml` dependencies. And import it:
+Add latest version of `carousel_slider_plus` to your `pubspec.yaml` dependencies. And import it:
 
 ```dart
 import 'package:carousel_slider_plus/carousel_slider_plus.dart';
