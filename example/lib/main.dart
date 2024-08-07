@@ -35,19 +35,19 @@ class CarouselDemo extends StatelessWidget {
           routes: {
             '/': (ctx) => const CarouselDemoHome(),
             '/basic': (ctx) => const BasicDemo(),
-            '/nocenter': (ctx) => const NoCenterDemo(),
+            '/no-center': (ctx) => const NoCenterDemo(),
             '/image': (ctx) => const ImageSliderDemo(),
             '/complicated': (ctx) => const ComplicatedImageDemo(),
             '/enlarge': (ctx) => const EnlargeStrategyDemo(),
             '/manual': (ctx) => const ManuallyControlledSlider(),
-            '/noloop': (ctx) => const NoonLoopingDemo(),
+            '/no-loop': (ctx) => const NoonLoopingDemo(),
             '/vertical': (ctx) => const VerticalSliderDemo(),
             '/fullscreen': (ctx) => const FullscreenSliderDemo(),
-            '/ondemand': (ctx) => const OnDemandCarouselDemo(),
+            '/on-demand': (ctx) => const OnDemandCarouselDemo(),
             '/indicator': (ctx) => const CarouselWithIndicatorDemo(),
             '/prefetch': (ctx) => const PrefetchImageDemo(),
             '/reason': (ctx) => const CarouselChangeReasonDemo(),
-            '/position': (ctx) => const KeepPageviewPositionDemo(),
+            '/position': (ctx) => const KeepPageViewPositionDemo(),
             '/multiple': (ctx) => const MultipleItemDemo(),
             '/zoom': (ctx) => const EnlargeStrategyZoomDemo(),
           },
@@ -90,19 +90,19 @@ class CarouselDemoHome extends StatelessWidget {
       body: ListView(
         children: const <Widget>[
           DemoItem('Basic demo', '/basic'),
-          DemoItem('No center mode demo', '/nocenter'),
+          DemoItem('No center mode demo', '/no-center'),
           DemoItem('Image carousel slider', '/image'),
           DemoItem('More complicated image slider', '/complicated'),
           DemoItem('Enlarge strategy demo slider', '/enlarge'),
           DemoItem('Manually controlled slider', '/manual'),
-          DemoItem('Noon-looping carousel slider', '/noloop'),
+          DemoItem('Noon-looping carousel slider', '/no-loop'),
           DemoItem('Vertical carousel slider', '/vertical'),
           DemoItem('Fullscreen carousel slider', '/fullscreen'),
           DemoItem('Carousel with indicator controller demo', '/indicator'),
-          DemoItem('On-demand carousel slider', '/ondemand'),
+          DemoItem('On-demand carousel slider', '/on-demand'),
           DemoItem('Image carousel slider with prefetch demo', '/prefetch'),
           DemoItem('Carousel change reason demo', '/reason'),
-          DemoItem('Keep pageview position demo', '/position'),
+          DemoItem('Keep Page View position demo', '/position'),
           DemoItem('Multiple item in one screen demo', '/multiple'),
           DemoItem('Enlarge strategy: zoom demo', '/zoom'),
         ],
@@ -589,13 +589,13 @@ class _CarouselChangeReasonDemoState extends State<CarouselChangeReasonDemo> {
   }
 }
 
-class KeepPageviewPositionDemo extends StatelessWidget {
-  const KeepPageviewPositionDemo({super.key});
+class KeepPageViewPositionDemo extends StatelessWidget {
+  const KeepPageViewPositionDemo({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Keep pageview position demo')),
+      appBar: AppBar(title: const Text('Keep Page View position demo')),
       body: ListView.builder(itemBuilder: (ctx, index) {
         if (index == 3) {
           return CarouselSlider(

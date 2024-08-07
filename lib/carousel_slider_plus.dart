@@ -319,7 +319,7 @@ class _CarouselSliderState extends State<CarouselSlider> with TickerProviderStat
             double itemOffset = 0;
             if (widget.options.enlargeCenterPage != null && widget.options.enlargeCenterPage == true) {
               // pageController.page can only be accessed after the first build,
-              // so in the first build we calculate the itemoffset manually
+              // so in the first build we calculate the item offset manually
               var position = carouselState?.pageController?.position;
               if (position != null && position.hasPixels && position.hasContentDimensions) {
                 var _page = carouselState?.pageController?.page;

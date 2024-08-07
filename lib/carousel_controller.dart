@@ -101,10 +101,10 @@ class CarouselControllerPlus {
     _state!.onResumeTimer();
   }
 
-  /// Stops the controlled [CarouselSlider] from autoplaying.
+  /// Stops the controlled [CarouselSlider] from auto-playing.
   ///
   /// This is a more on-demand way of doing this. Use the [autoPlay]
-  /// parameter in [CarouselOptions] to specify the autoPlay behaviour of the carousel.
+  /// parameter in [CarouselOptions] to specify the autoPlay behavior of the carousel.
   void stopAutoPlay() {
     _state!.onResetTimer();
   }

@@ -36,7 +36,7 @@ class CarouselOptions {
   ///Defaults to true, i.e. infinite loop.
   final bool enableInfiniteScroll;
 
-  ///Determines if carousel should loop to the closest occurence of requested page.
+  ///Determines if carousel should loop to the closest occurrence of requested page.
   ///
   ///Defaults to true.
   final bool animateToClosest;
@@ -119,7 +119,7 @@ class CarouselOptions {
   /// in the last item.
   final bool pauseAutoPlayInFiniteScroll;
 
-  /// Pass a `PageStoragekey` if you want to keep the pageview's position when it was recreated.
+  /// Pass a `PageStorageKey` if you want to keep the page-view's position when it was recreated.
   final PageStorageKey? pageViewKey;
 
   /// Use [enlargeStrategy] to determine which method to enlarge the center page.
