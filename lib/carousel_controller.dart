@@ -6,7 +6,7 @@ import 'carousel_options.dart';
 import 'carousel_state.dart';
 import 'utils.dart';
 
-class CarouselControllerPlus {
+class CarouselSliderController {
   final Completer<Null> _readyCompleter = Completer<Null>();
 
   CarouselState? _state;

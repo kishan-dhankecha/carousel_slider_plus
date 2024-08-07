@@ -31,7 +31,7 @@ This package is fork of [carousel_slider](https://pub.dev/packages/carousel_slid
 
 In this fork some of the namings are changed. So follow this below guides to migrate over this new package.
 
-#### 1. Instead of using `CarouselController`,  we now will use  `CarouselControllerPlus`. This change was necessary as flutter now has it's own `CarouselController` class as part of their material library.
+#### 1. Instead of using `CarouselController`,  we now will use  `CarouselSliderController`. This change was necessary as flutter now has it's own `CarouselController` class as part of their material library.
 
 #### Before
 
@@ -42,7 +42,7 @@ final CarouselController _controller = CarouselController();
 #### After
 
  ```dart
-final CarouselControllerPlus _controller = CarouselControllerPlus();
+final CarouselSliderController _controller = CarouselSliderController();
 ```
 
 #### 2. The parameter name to pass controller in `CarouselSlider` is now changed to `controller` from `carouselController`.
@@ -166,11 +166,11 @@ CarouselSlider.builder(
 
 ### Carousel controller
 
-In order to manually control the PageView's position, you can create your own `CarouselControllerPlus`, and pass it to `CarouselSlider`. Then you can use the `CarouselControllerPlus` instance to manipulate the position.
+In order to manually control the PageView's position, you can create your own `CarouselSliderController`, and pass it to `CarouselSlider`. Then you can use the `CarouselSliderController` instance to manipulate the position.
 
 ```dart 
 class CarouselDemo extends StatelessWidget {
-  CarouselControllerPlus buttonCarouselController = CarouselControllerPlus();
+  CarouselSliderController buttonCarouselController = CarouselSliderController();
 
   @override
   Widget build(BuildContext context) => Column(
@@ -196,7 +196,7 @@ class CarouselDemo extends StatelessWidget {
 }
 ```
 
-#### `CarouselControllerPlus` methods
+#### `CarouselSliderController` methods
 
 ``` dart
 /// Animate to the next page

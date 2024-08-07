@@ -24,7 +24,7 @@ typedef Widget ExtendedIndexedWidgetBuilder(BuildContext context, int index, int
 /// It can be used to display images, cards, or any other widgets.
 /// It is similar to a ViewPager in Android.
 /// It is highly customizable and flexible.
-/// You can control the carousel manually by using the [CarouselControllerPlus] that is passed to the constructor.
+/// You can control the carousel manually by using the [CarouselSliderController] that is passed to the constructor.
 class CarouselSlider extends StatefulWidget {
   /// [CarouselOptions] to create a [CarouselState] with
   final CarouselOptions options;
@@ -50,11 +50,11 @@ class CarouselSlider extends StatefulWidget {
 
   /// The controller that can be used to control the carousel
   /// This can be used to change the current page or to start the autoplay.
-  /// Defaults to a new instance of [CarouselControllerPlus].
+  /// Defaults to a new instance of [CarouselSliderController].
   /// If you want to control the carousel manually,
   /// you can pass your own instance of
-  /// [CarouselControllerPlus] to this constructor
-  final CarouselControllerPlus carouselController;
+  /// [CarouselSliderController] to this constructor
+  final CarouselSliderController carouselController;
 
   /// The number of items in the carousel
   /// This is required if you are using the builder constructor
@@ -68,11 +68,11 @@ class CarouselSlider extends StatefulWidget {
     required this.items,
     CarouselOptions? options,
     this.disableGesture = false,
-    CarouselControllerPlus? controller,
+    CarouselSliderController? controller,
   })  : this.options = options ?? CarouselOptions(),
         itemBuilder = null,
         itemCount = items?.length ?? 0,
-        carouselController = controller ?? CarouselControllerPlus();
+        carouselController = controller ?? CarouselSliderController();
 
   /// Creates a carousel slider widget with a builder
   /// The items will be created using the builder that you pass to this constructor.
@@ -83,10 +83,10 @@ class CarouselSlider extends StatefulWidget {
     required this.itemBuilder,
     CarouselOptions? options,
     this.disableGesture = false,
-    CarouselControllerPlus? controller,
+    CarouselSliderController? controller,
   })  : this.options = options ?? CarouselOptions(),
         items = null,
-        carouselController = controller ?? CarouselControllerPlus();
+        carouselController = controller ?? CarouselSliderController();
 
   @override
   _CarouselSliderState createState() => _CarouselSliderState();
