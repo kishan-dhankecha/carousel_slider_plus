@@ -189,7 +189,7 @@ final List<Widget> imageSliders = imgList.map((item) {
                 gradient: LinearGradient(
                   colors: [
                     Color.fromARGB(200, 0, 0, 0),
-                    Color.fromARGB(0, 0, 0, 0)
+                    Color.fromARGB(0, 0, 0, 0),
                   ],
                   begin: Alignment.bottomCenter,
                   end: Alignment.topCenter,
@@ -639,10 +639,7 @@ class MultipleItemDemo extends StatelessWidget {
           final int first = index * 2;
           final int second = first + 1;
           return Row(
-            children: [
-              first,
-              second
-            ].map((idx) {
+            children: [first, second].map((idx) {
               return Expanded(
                 flex: 1,
                 child: Container(
