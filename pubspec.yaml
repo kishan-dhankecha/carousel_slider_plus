@@ -1,7 +1,20 @@
 name: carousel_slider_plus
 description: A carousel slider widget, support infinite scroll and custom child widget.
 repository: https://github.com/kishan-dhankecha/carousel_slider_plus
-version: 7.0.0
+issue_tracker: https://github.com/kishan-dhankecha/carousel_slider_plus/issues
+topics:
+  - ui
+  - widget
+  - carousel
+  - carousel-slider
+  - carousel-widget
+screenshots:
+  - description: Simple carousel slider
+    path: screenshot/complicated-image.gif
+  - description: Carousel slider with custom indicator
+    path: screenshot/vertical.gif
+
+version: 7.0.1
 
 environment:
   sdk: '>=2.17.0 <4.0.0'

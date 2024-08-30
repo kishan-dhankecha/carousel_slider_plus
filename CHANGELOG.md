@@ -1,3 +1,11 @@
+# 7.0.1
+
+## Fixes
+- slider now can be operated with stylus ([#3](https://github.com/kishan-dhankecha/carousel_slider_plus/issues/3)).
+
+## Chores
+- Example project updated
+
 # 7.0.0
 
 ## Breaking change
