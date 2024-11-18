@@ -11,8 +11,7 @@ dependencies:
   carousel_slider_plus: { path: ../ }
 
 dev_dependencies:
-  flutter_test: { sdk: flutter }
-  flutter_lints: ^4.0.0
+  flutter_lints: ^5.0.0
 
 flutter:
   uses-material-design: true

@@ -1,3 +1,11 @@
+# 7.0.2
+
+## Fixes
+- spacing issue fixed when revered is true ([#7](https://github.com/kishan-dhankecha/carousel_slider_plus/issues/7)).
+
+## Chores
+- Some code cleanup in carousel_slider_plus.dart
+
 # 7.0.1
 
 ## Fixes

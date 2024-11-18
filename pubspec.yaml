@@ -14,7 +14,7 @@ screenshots:
   - description: Carousel slider with custom indicator
     path: screenshot/vertical.gif
 
-version: 7.0.1
+version: 7.0.2
 
 environment:
   sdk: '>=2.17.0 <4.0.0'
@@ -24,5 +24,4 @@ dependencies:
   flutter: { sdk: flutter }
 
 dev_dependencies:
-  flutter_test: { sdk: flutter }
-  flutter_lints: ^4.0.0
+  flutter_lints: ^5.0.0
