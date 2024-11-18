@@ -5,6 +5,7 @@
 
 ## Chores
 - Some code cleanup in carousel_slider_plus.dart
+- Migrating guide updated in README.md
 
 # 7.0.1
 

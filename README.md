@@ -2,15 +2,13 @@
 
 A carousel slider widget.
 
-This package is fork of [carousel_slider](https://pub.dev/packages/carousel_slider) which is not maintained anymore.
+This package is fork of [carousel_slider](https://pub.dev/packages/carousel_slider) which is not actively maintained.
 
 [![pub package](https://img.shields.io/pub/v/carousel_slider_plus.svg)](https://pub.dev/packages/carousel_slider_plus)
 
 [![likes](https://img.shields.io/pub/likes/carousel_slider_plus)](https://pub.dev/packages/carousel_slider_plus/score)
 [![popularity](https://img.shields.io/pub/popularity/carousel_slider_plus)](https://pub.dev/packages/carousel_slider_plus/score)
 [![pub points](https://img.shields.io/pub/points/carousel_slider_plus)](https://pub.dev/packages/carousel_slider_plus/score)
-
----
 
 ---
 
@@ -31,21 +29,22 @@ This package is fork of [carousel_slider](https://pub.dev/packages/carousel_slid
 
 In this fork some of the namings are changed. So follow this below guides to migrate over this new package.
 
-#### 1. Instead of using `CarouselController`,  we now will use  `CarouselSliderController`. This change was necessary as flutter now has it's own `CarouselController` class as part of their material library.
+
+#### Please make sure to change the import statement
 
 #### Before
 
 ```dart
-final CarouselController _controller = CarouselController();
+import "package:carousel_slider/carousel_slider.dart;
 ```
 
 #### After
 
- ```dart
-final CarouselSliderController _controller = CarouselSliderController();
+```dart
+import 'package:carousel_slider_plus/carousel_slider_plus.dart';
 ```
 
-#### 2. The parameter name to pass controller in `CarouselSlider` is now changed to `controller` from `carouselController`.
+#### The parameter name to pass controller in `CarouselSlider` is now changed to `controller` from `carouselController`.
 
 #### Before
 
@@ -65,19 +64,6 @@ CarouselSlider(
 ),
 ```
 
-#### Please make sure to change the import statement also
-
-#### Before
-
-```dart
-import "package:carousel_slider/carousel_slider.dart;
-```
-
-#### After
-
-```dart
-import 'package:carousel_slider_plus/carousel_slider_plus.dart';
-```
 
 ## Features 
 
