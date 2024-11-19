@@ -274,6 +274,7 @@ class _CarouselSliderState extends State<CarouselSlider> with TickerProviderStat
   @override
   void dispose() {
     super.dispose();
+    carouselState.dispose();
     clearTimer();
   }
 

@@ -9,6 +9,11 @@ class CarouselState {
   /// and can be used to control the [PageView] it is passed to.
   PageController? pageController;
 
+  /// dispose the [pageController] when the state is disposed
+  void dispose() {
+    pageController?.dispose();
+  }
+
   /// The actual index of the [PageView].
   ///
   /// This value can be ignored unless you know the carousel will be scrolled

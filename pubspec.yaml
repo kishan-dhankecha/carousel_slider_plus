@@ -14,7 +14,7 @@ screenshots:
   - description: Carousel slider with custom indicator
     path: screenshot/vertical.gif
 
-version: 7.0.2
+version: 7.0.3
 
 environment:
   sdk: '>=2.17.0 <4.0.0'

@@ -1,3 +1,8 @@
+# 7.0.3
+
+## Fixes
+- Page controller is now disposed when the widget is disposed
+
 # 7.0.2
 
 ## Fixes
