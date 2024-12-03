@@ -1,16 +1,8 @@
 import 'package:flutter/material.dart';
 
-enum CarouselPageChangedReason {
-  timed,
-  manual,
-  controller
-}
+enum CarouselPageChangedReason { timed, manual, controller }
 
-enum CenterPageEnlargeStrategy {
-  scale,
-  height,
-  zoom
-}
+enum CenterPageEnlargeStrategy { scale, height, zoom }
 
 class CarouselOptions {
   /// Set carousel height and overrides any existing [aspectRatio].
@@ -72,7 +64,7 @@ class CarouselOptions {
   /// creating a feeling of depth in the carousel.
   ///
   /// Defaults to false.
-  final bool? enlargeCenterPage;
+  final bool enlargeCenterPage;
 
   /// The axis along which the page view scrolls.
   ///

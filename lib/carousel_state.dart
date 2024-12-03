@@ -7,11 +7,11 @@ class CarouselState {
 
   /// [pageController] is created using the properties passed to the constructor
   /// and can be used to control the [PageView] it is passed to.
-  PageController? pageController;
+  late PageController pageController;
 
   /// dispose the [pageController] when the state is disposed
   void dispose() {
-    pageController?.dispose();
+    pageController.dispose();
   }
 
   /// The actual index of the [PageView].
@@ -26,7 +26,7 @@ class CarouselState {
   int initialPage = 0;
 
   /// The widgets count that should be shown at carousel
-  int? itemCount;
+  int itemCount;
 
   /// Will be called when using pageController to go to next page or
   /// previous page. It will clear the autoPlay timer.
@@ -41,5 +41,11 @@ class CarouselState {
   /// The callback to set the Reason Carousel changed
   Function(CarouselPageChangedReason) changeMode;
 
-  CarouselState(this.options, this.onResetTimer, this.onResumeTimer, this.changeMode);
+  CarouselState(
+    this.options,
+    this.onResetTimer,
+    this.onResumeTimer,
+    this.changeMode,
+    this.itemCount,
+  );
 }

@@ -1,6 +1,7 @@
-# 7.0.3
+# 7.1.0
 
 ## Fixes
+- Null safety improvements
 - Page controller is now disposed when the widget is disposed
 
 # 7.0.2
@@ -24,7 +25,7 @@
 
 ## Breaking change
 - `CarouselControllerPlus` renamed to `CarouselSliderController`
-> This change was made due ti many developers had find this naming convention better over the last one and there were only few developers who have adapted to this package from original carousel_slider package at the time of this change. Due to release of 3.24 of flutter many more developers are willing to migrate to this package so it is best time to fix the naming convention before it is used widely.
+> This change was made due to many developers had find this naming convention better over the last one and there were only few developers who have adapted to this package from original carousel_slider package at the time of this change. Due to release of 3.24 of flutter many more developers are willing to migrate to this package so it is best time to fix the naming convention before it is used widely.
 
 ## Chores
 - Docs updated
