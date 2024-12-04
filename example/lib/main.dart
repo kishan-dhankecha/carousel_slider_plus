@@ -1,7 +1,6 @@
 import 'package:carousel_slider_plus/carousel_slider_plus.dart';
 import 'package:flutter/material.dart';
-
-import 'configure_nonweb.dart' if (dart.library.html) 'configure_web.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
 
 final List<String> imgList = [
   'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
@@ -13,7 +12,7 @@ final List<String> imgList = [
 ];
 
 void main() {
-  configureApp();
+  usePathUrlStrategy();
   runApp(const CarouselDemo());
 }
 
@@ -237,7 +236,7 @@ class EnlargeStrategyDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Complicated image slider demo')),
+      appBar: AppBar(title: const Text('Enlarge strategy demo')),
       body: CarouselSlider(
         options: CarouselOptions(
           autoPlay: true,
