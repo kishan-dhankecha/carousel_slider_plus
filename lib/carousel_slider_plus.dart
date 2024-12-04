@@ -278,6 +278,7 @@ class _CarouselSliderState extends State<CarouselSlider> with TickerProviderStat
 
   @override
   Widget build(BuildContext context) {
+    if ((widget.items == null && widget.itemBuilder == null) || widget.itemCount < 1) return SizedBox();
     return getGestureWrapper(PageView.builder(
       padEnds: widget.options.padEnds,
       scrollBehavior: ScrollConfiguration.of(context).copyWith(scrollbars: false, overscroll: false),

@@ -3,6 +3,7 @@
 ## Fixes
 - Null safety improvements
 - Page controller is now disposed when the widget is disposed
+- Return empty widget when no items or itemBuilder is provided
 
 # 7.0.2
 
