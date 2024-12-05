@@ -4,6 +4,7 @@
 - Null safety improvements
 - Page controller is now disposed when the widget is disposed
 - Return empty widget when no items or itemBuilder is provided
+- Fixed a bug introduced in 7.0.1, where the slider could not be operated with a mouse
 
 # 7.0.2
 
