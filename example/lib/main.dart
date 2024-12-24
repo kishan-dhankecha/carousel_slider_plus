@@ -194,7 +194,8 @@ final List<Widget> imageSliders = imgList.map((item) {
                   end: Alignment.topCenter,
                 ),
               ),
-              padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+              padding:
+                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
               child: Text(
                 'No. ${imgList.indexOf(item)} image',
                 style: const TextStyle(
@@ -418,7 +419,9 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicatorDemo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Carousel with indicator controller demo')),
+      appBar: AppBar(
+        title: const Text('Carousel with indicator controller demo'),
+      ),
       body: SafeArea(
         child: Column(children: [
           Expanded(
@@ -443,8 +446,19 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicatorDemo> {
                 child: Container(
                   width: 12.0,
                   height: 12.0,
-                  margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
-                  decoration: BoxDecoration(shape: BoxShape.circle, color: (Theme.of(context).brightness == Brightness.dark ? Colors.white : Colors.black).withOpacity(_current == entry.key ? 0.9 : 0.4)),
+                  margin: const EdgeInsets.symmetric(
+                    vertical: 8.0,
+                    horizontal: 4.0,
+                  ),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: (Theme.of(context).brightness == Brightness.dark
+                            ? Colors.white
+                            : Colors.black)
+                        .withValues(
+                      alpha: _current == entry.key ? 0.9 : 0.4,
+                    ),
+                  ),
                 ),
               );
             }).toList(),
