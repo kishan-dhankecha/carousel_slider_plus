@@ -1,3 +1,12 @@
+# 7.1.1
+
+## Fixes
+- Uses `Listener` instead of `RawGestureDetector`.
+  - This fixes slider autoplay issue while in dragging state.
+
+## Chores
+- Code formatting
+
 # 7.1.0
 
 ## Fixes
