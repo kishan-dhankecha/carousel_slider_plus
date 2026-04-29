@@ -157,7 +157,7 @@ class _CarouselSliderState extends State<CarouselSlider>
   Timer? getTimer() {
     if (!widget.options.autoPlay) return null;
     return Timer.periodic(widget.options.autoPlayInterval, (_) {
-      if (!mounted) {
+      if (!mounted || !state.pageController.hasClients || state.pageController.page == null) {
         clearTimer();
         return;
       }
