@@ -73,7 +73,7 @@ class CarouselSlider extends StatefulWidget {
     CarouselOptions? options,
     this.disableGesture = false,
     CarouselSliderController? controller,
-  })  : this.options = options ?? CarouselOptions(),
+  })  : options = options ?? CarouselOptions(),
         itemBuilder = null,
         itemCount = items?.length ?? 0,
         carouselController = controller ?? CarouselSliderController(),
@@ -89,13 +89,13 @@ class CarouselSlider extends StatefulWidget {
     CarouselOptions? options,
     this.disableGesture = false,
     CarouselSliderController? controller,
-  })  : this.options = options ?? CarouselOptions(),
+  })  : options = options ?? CarouselOptions(),
         items = null,
         carouselController = controller ?? CarouselSliderController(),
         assert(itemBuilder != null, 'itemBuilder cannot be null');
 
   @override
-  _CarouselSliderState createState() => _CarouselSliderState();
+  State<CarouselSlider> createState() => _CarouselSliderState();
 }
 
 class _CarouselSliderState extends State<CarouselSlider>
@@ -109,8 +109,8 @@ class _CarouselSliderState extends State<CarouselSlider>
   /// mode is related to why the page is being changed
   CarouselPageChangedReason mode = CarouselPageChangedReason.controller;
 
-  void changeMode(CarouselPageChangedReason _mode) {
-    mode = _mode;
+  void changeMode(CarouselPageChangedReason newMode) {
+    mode = newMode;
   }
 
   @override
@@ -134,10 +134,10 @@ class _CarouselSliderState extends State<CarouselSlider>
   void initState() {
     super.initState();
     state = CarouselState(
-      this.options,
+      options,
       clearTimer,
       resumeTimer,
-      this.changeMode,
+      changeMode,
       widget.itemCount,
     );
 
@@ -157,7 +157,9 @@ class _CarouselSliderState extends State<CarouselSlider>
   Timer? getTimer() {
     if (!widget.options.autoPlay) return null;
     return Timer.periodic(widget.options.autoPlayInterval, (_) {
-      if (!mounted || !state.pageController.hasClients || state.pageController.page == null) {
+      if (!mounted ||
+          !state.pageController.hasClients ||
+          state.pageController.page == null) {
         clearTimer();
         return;
       }
@@ -195,9 +197,7 @@ class _CarouselSliderState extends State<CarouselSlider>
   }
 
   void resumeTimer() {
-    if (timer == null) {
-      timer = getTimer();
-    }
+    timer ??= getTimer();
   }
 
   void handleAutoPlay() {
@@ -214,7 +214,7 @@ class _CarouselSliderState extends State<CarouselSlider>
   Widget getGestureWrapper(Widget child) {
     Widget wrapper;
     if (widget.options.height != null) {
-      wrapper = Container(
+      wrapper = SizedBox(
         height: widget.options.height,
         child: child,
       );
@@ -250,9 +250,9 @@ class _CarouselSliderState extends State<CarouselSlider>
 
   Widget getCenterWrapper(Widget child) {
     return ConditionalParentWidget(
-      child: child,
       isIncluded: !widget.options.disableCenter,
       parentBuilder: (child) => Center(child: child),
+      child: child,
     );
   }
 
@@ -262,7 +262,7 @@ class _CarouselSliderState extends State<CarouselSlider>
       double? scale,
       required double itemOffset}) {
     if (widget.options.enlargeStrategy == CenterPageEnlargeStrategy.height) {
-      return SizedBox(child: child, width: width, height: height);
+      return SizedBox(width: width, height: height, child: child);
     }
     if (widget.options.enlargeStrategy == CenterPageEnlargeStrategy.zoom) {
       late Alignment alignment;
@@ -272,11 +272,11 @@ class _CarouselSliderState extends State<CarouselSlider>
       } else {
         alignment = horizontal ? Alignment.centerLeft : Alignment.topCenter;
       }
-      return Transform.scale(child: child, scale: scale!, alignment: alignment);
+      return Transform.scale(scale: scale!, alignment: alignment, child: child);
     }
     return Transform.scale(
       scale: scale!,
-      child: Container(child: child, width: width, height: height),
+      child: SizedBox(width: width, height: height, child: child),
     );
   }
 
@@ -350,10 +350,10 @@ class _CarouselSliderState extends State<CarouselSlider>
               // so in the first build we calculate the item offset manually
               var position = state.pageController.position;
               if (position.hasPixels && position.hasContentDimensions) {
-                var _page = state.pageController.page;
-                if (_page != null)
-                  itemOffset =
-                      widget.options.reverse ? idx - _page : _page - idx;
+                var page = state.pageController.page;
+                if (page != null) {
+                  itemOffset = widget.options.reverse ? idx - page : page - idx;
+                }
               } else {
                 final storageCtx =
                     state.pageController.position.context.storageContext;
