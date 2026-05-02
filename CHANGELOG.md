@@ -1,3 +1,12 @@
+# 7.1.2
+
+## Fixes
+- Added `hasClients` & null check on the page property to avoid null pointer errors.
+
+## Chores
+- Code linter added
+
+
 # 7.1.1
 
 ## Fixes
